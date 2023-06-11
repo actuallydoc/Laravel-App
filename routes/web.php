@@ -69,6 +69,7 @@ Route::get('/home', 'App\Http\Controllers\HomeController');
 //This grabs all the routes that are inside the PostsControllerResource and chains them
 Route::resource('post', PostsControllerResource::class); // This is the same as the above routes
 
+
 // Route::match(['GET', 'POST'], '/post',[PostsControllerResource::class, 'index']);
 
 // Route::any('/post', [PostsControllerResource::class, 'index']); // This is the best
@@ -78,9 +79,9 @@ Route::resource('post', PostsControllerResource::class); // This is the same as 
 
 // Route for invoke method. Just call the controller and it will call the invoke method
 
-
 Route::get('/', 'App\Http\Controllers\StripeController@index')->name('index');
-
+Route::get('/invoices', 'App\Http\Controllers\InvoiceController@index')->name('index');
+Route::post('/create', 'App\Http\Controllers\InvoiceController@create')->name('create');
 
 Route::middleware([
     'auth:sanctum',

@@ -4,9 +4,8 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-2">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <x-welcome />
             </div>
@@ -14,6 +13,13 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <button class="bg-white p-2 rounded-lg mt-3" type="submit">Checkout</button>
             </form>
+            <div class="">
+                <div class="">
+                    <h1 class="bg-white w-fit p-2 rounded-lg">Invoices</h1>
+                </div>
+
+            </div>
         </div>
+
     </div>
 </x-app-layout>
