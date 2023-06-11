@@ -80,7 +80,7 @@ Route::resource('post', PostsControllerResource::class); // This is the same as 
 // Route for invoke method. Just call the controller and it will call the invoke method
 
 Route::get('/', 'App\Http\Controllers\StripeController@index')->name('index');
-Route::get('/invoices', 'App\Http\Controllers\InvoiceController@index')->name('index');
+Route::get('/invoices', 'App\Http\Controllers\InvoiceController@index')->name('invoices');
 Route::post('/create', 'App\Http\Controllers\InvoiceController@create')->name('create');
 
 Route::middleware([

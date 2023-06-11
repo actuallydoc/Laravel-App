@@ -13,12 +13,6 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <button class="bg-white p-2 rounded-lg mt-3" type="submit">Checkout</button>
             </form>
-            <div class="">
-                <div class="">
-                    <h1 class="bg-white w-fit p-2 rounded-lg">Invoices</h1>
-                </div>
-
-            </div>
         </div>
 
     </div>
