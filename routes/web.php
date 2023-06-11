@@ -14,7 +14,7 @@ use App\Http\Controllers\PostsControllerResource;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/* 
+/*
     GET - request a resource
     POST - create a resource
     PUT - update a resource (replace the entire resource)
@@ -28,7 +28,7 @@ Route::get('/', function () {
     Debugbar::error("Hello World!");
     Debugbar::warning("Hello World!");
     Debugbar::startMeasure('render','Time for rendering');
-    
+
     // $name = "Code with Doc";
     // dd(config('services.mailgun.domain'));
     // Example of throwing an exception
@@ -63,7 +63,7 @@ Route::post('/post', [PostsControllerResource::class, 'store']);
 // PUT OR PATCH
 Route::get('/post/edit/{id}', [PostsControllerResource::class, 'edit']);
 Route::patch('/post/{id}', [PostsControllerResource::class, 'update']);
-// DELETE 
+// DELETE
 Route::delete('/post/edit/{id}', [PostsControllerResource::class, 'destroy']);
 Route::get('/home', 'App\Http\Controllers\HomeController');
 //This grabs all the routes that are inside the PostsControllerResource and chains them
@@ -71,12 +71,16 @@ Route::resource('post', PostsControllerResource::class); // This is the same as 
 
 // Route::match(['GET', 'POST'], '/post',[PostsControllerResource::class, 'index']);
 
-// Route::any('/post', [PostsControllerResource::class, 'index']); // This is the best 
+// Route::any('/post', [PostsControllerResource::class, 'index']); // This is the best
 
 // Return a view
 // Route::view('/post', 'post.index', ['name' => 'Code with Doc']);
 
 // Route for invoke method. Just call the controller and it will call the invoke method
+
+
+Route::get('/', 'App\Http\Controllers\StripeController@index')->name('index');
+
 
 Route::middleware([
     'auth:sanctum',
@@ -86,5 +90,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::post('/checkout', 'App\Http\Controllers\StripeController@checkout')->name('checkout');
+    Route::get('/success', 'App\Http\Controllers\StripeController@success')->name('success');
 });
 

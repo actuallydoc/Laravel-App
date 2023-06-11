@@ -10,6 +10,10 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
                 <x-welcome />
             </div>
+            <form action="/checkout" method="POST">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <button class="bg-white p-2 rounded-lg mt-3" type="submit">Checkout</button>
+            </form>
         </div>
     </div>
 </x-app-layout>
